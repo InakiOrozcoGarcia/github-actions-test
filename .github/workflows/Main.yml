@@ -29,29 +29,29 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps: 
-      - names: Test the project SDL
+      - name: Test the project SDL
         run: testing
 
   scan:
     runs-on: ubuntu-latest
     steps: 
-      - names: Scan the project SDL code
+      - name: Scan the project SDL code
         run: scanning
 
   verify-tests:
     runs-on: ubuntu-latest
     steps: 
-      - names: verify test results
+      - name: verify test results
         run: verifying tests
 
   verify-scans:
     runs-on: ubuntu-latest
     steps: 
-      - names: verify the scans of code
+      - name: verify the scans of code
         run: verifying scans
 
   upload-SDL-report:
     runs-on: ubuntu-latest
     steps: 
-      - names: Upload the evidence to the project SDL
+      - name: Upload the evidence to the project SDL
         run: uploading SDL
