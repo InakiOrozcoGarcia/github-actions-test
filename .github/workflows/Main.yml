@@ -19,3 +19,14 @@ jobs:
         run: |
           echo The project is ${{ inputs.project }}
           echo The SDLE id is ${{ inputs.SDLe_id }}
+  build:
+
+  test:
+
+  scan:
+
+  verify-tests:
+
+  verify-scans:
+
+  upload-SDL-report:
