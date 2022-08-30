@@ -4,15 +4,11 @@ on:
   workflow_call:
     inputs:
       project:
-        description: 'The project that its gonna be tested'
-        default: 'EMA'
         required: true
         type: string
       SDLe_id:
-        description: 'the SDLe ID'
-        default: 0
         required: true
-        type: int
+        type: number
 
 jobs:
   print-info:
