@@ -27,30 +27,35 @@ jobs:
         run: echo Building
 
   test:
+    needs: build
     runs-on: ubuntu-latest
     steps: 
       - name: Test the project SDL
         run: echo testing
 
   scan:
+    needs: build
     runs-on: ubuntu-latest
     steps: 
       - name: Scan the project SDL code
         run: echo scanning
 
   verify-tests:
+    needs: test
     runs-on: ubuntu-latest
     steps: 
       - name: verify test results
         run: echo verifying tests
 
   verify-scans:
+    needs: scan
     runs-on: ubuntu-latest
     steps: 
       - name: verify the scans of code
         run: echo verifying scans
 
   upload-SDL-report:
+    needs: [verify-tests, verify-scans]
     runs-on: ubuntu-latest
     steps: 
       - name: Upload the evidence to the project SDL
