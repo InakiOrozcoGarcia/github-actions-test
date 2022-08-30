@@ -4,7 +4,7 @@ on: [push]
 
 jobs: 
   call-workflow-report_SDL:
-    uses: InakiOrozcoGarcia/github-actions-test/.github/workflows/main.yml@main
+    uses: ./main.yml@main
     with:
       project: 'EMA'
       SDLe_id: 10
