@@ -57,6 +57,7 @@ jobs:
         run: echo verifying scans
 
   upload-SDL-report:
+    if: ${{ always() }}
     needs: [verify-tests, verify-scans]
     runs-on: ubuntu-latest
     steps: 
