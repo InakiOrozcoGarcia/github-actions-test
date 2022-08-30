@@ -1,30 +1,25 @@
 name: report SDL
 
 on:
-  schedule:
-    - cron: '30 5 * * 1,3'
-    - cron: '30 5 * * 2,4'
   workflow_call:
     inputs:
-      username:
-        description: 'A username passed from the caller workflow'
-        default: 'john-doe'
-        required: false
+      project:
+        description: 'The project that its gonna be tested'
+        default: 'EMA'
+        required: true
         type: string
+      SDLe_id:
+        description: 'the SDLe ID'
+        default: 0
+        required: true
+        type: int
 
 jobs:
-  test_schedule:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Not on Monday or Wednesday
-        if: github.event.schedule != '30 5 * * 1,3'
-        run: echo "This step will be skipped on Monday and Wednesday"
-      - name: Every time
-        run: echo "This step will always run"
-  
-  print-username:
+  print-info:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Print the input name to STDOUT
-        run: echo The username is ${{ inputs.username }}
+      - name: Print the input project and SDLe id to STDOUT
+        run: |
+          echo The project is ${{ inputs.username }}
+          echo The SDLE id is ${{ inputs.SDLe_id }}
