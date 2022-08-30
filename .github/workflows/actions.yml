@@ -1,8 +1,7 @@
 name: Actions Workflow
 
 on: 
-  workflow_dispatch
-  push
+  [workflow_dispatch, push]
 
 jobs: 
   call-workflow-report_SDL:
