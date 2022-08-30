@@ -13,14 +13,7 @@ on:
   push:
 
 jobs:
-  print-info:
-    runs-on: ubuntu-latest
 
-    steps:
-      - name: Print the input project and SDLe id to STDOUT
-        run: |
-          echo The project is ${{ inputs.project }}
-          echo The SDLE id is ${{ inputs.SDLe_id }}
 
   build:
     runs-on: ubuntu-latest
