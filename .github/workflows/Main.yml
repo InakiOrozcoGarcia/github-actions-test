@@ -9,6 +9,7 @@ on:
       SDLe_id:
         required: true
         type: string
+  workflow_dispatch:
 
 jobs:
   print-info:
