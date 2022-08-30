@@ -8,7 +8,7 @@ on:
         type: string
       SDLe_id:
         required: true
-        type: number
+        type: string
 
 jobs:
   print-info:
