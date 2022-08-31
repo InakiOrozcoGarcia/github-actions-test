@@ -1,17 +1,38 @@
 name: Actions Workflow
 
 on: 
-  [workflow_dispatch]
+  workflow_dispatch:
+    inputs:
+      project:
+        description: 'The project that you want to test & scan'
+        required: true
+        type: choice
+        options:
+        - EMA
+        - UNITE
+      SDLe_id:
+        description: 'The ID of the SDL project'
+        required: true
+        type: string
+      print_tags:
+        description: 'True to print to STDOUT'
+        required: true
+        type: boolean
 
 jobs: 
-  test-EMA:
+  run-all:
     uses: InakiOrozcoGarcia/github-actions-test/.github/workflows/Main.yml@master
     with:
-      project: 'EMA'
-      SDLe_id: '0'
-
-  test-UNITE:
+      project: ${{ inputs.project }}
+      SDLe_id: ${{ inputs.SDLe_id }}
+  run-scans:
     uses: InakiOrozcoGarcia/github-actions-test/.github/workflows/Main.yml@master
     with:
-      project: 'UNITE'
-      SDLe_id: '0'
+      project: ${{ inputs.project }}
+      SDLe_id: ${{ inputs.SDLe_id }}
+  run-tests:
+    uses: InakiOrozcoGarcia/github-actions-test/.github/workflows/Main.yml@master
+    with:
+      project: ${{ inputs.project }}
+      SDLe_id: ${{ inputs.SDLe_id }}
+    

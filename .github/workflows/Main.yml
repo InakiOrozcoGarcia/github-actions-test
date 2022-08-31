@@ -6,7 +6,10 @@ on:
       project:
         description: 'The project that you want to test & scan'
         required: true
-        type: string
+        type: choice
+        options:
+        - EMA
+        - UNITE
       SDLe_id:
         description: 'The ID of the SDL project'
         required: true
