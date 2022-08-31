@@ -2,7 +2,7 @@ name: report SDL
 
 on:
   workflow_dispatch:
-    inputss:
+    inputs:
       project:
         description: 'The project that you want to test & scan'
         required: true
@@ -29,14 +29,14 @@ on:
 
 jobs:
   print-info:
-    if: ${{ inputss.print_tags }}
+    if: ${{ inputs.print_tags }}
     runs-on: ubuntu-latest
     steps:
-      - name: Print the inputs project and SDLe id to STDOUT
+      - name: Print the input project and SDLe id to STDOUT
         run: |
-          echo The project is ${{ inputss.project }}
-          echo The job is ${{ inputss.job}}
-          echo The SDLE id is ${{ inputss.SDLe_id }}
+          echo The project is ${{ inputs.project }}
+          echo The job is ${{ inputs.job}}
+          echo The SDLE id is ${{ inputs.SDLe_id }}
 
   build:
     runs-on: ubuntu-latest
