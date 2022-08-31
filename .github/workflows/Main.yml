@@ -1,12 +1,23 @@
 name: report SDL
 
 on:
-  workflow_call:
+  workflow_dispatch:
     inputs:
       project:
         description: 'The project that you want to test & scan'
         required: true
-        type: string
+        type: choice
+        options:
+        - 'EMA'
+        - 'UNITE'
+      job:
+        description: 'What do you want to execute'
+        required: true
+        type: choice
+        options: 
+        - 'run All'
+        - 'run tests'
+        - 'run scans'
       SDLe_id:
         description: 'The ID of the SDL project'
         required: true
@@ -18,12 +29,13 @@ on:
 
 jobs:
   print-info:
+    if: ${{ inputs.print_tags }}
     runs-on: ubuntu-latest
-
     steps:
       - name: Print the input project and SDLe id to STDOUT
         run: |
           echo The project is ${{ inputs.project }}
+          echo The job is ${{ inputs.job}}
           echo The SDLE id is ${{ inputs.SDLe_id }}
 
   build:
@@ -33,6 +45,7 @@ jobs:
         run: echo Building
 
   test:
+    if: ${{input.job == 'run All' || input.job == 'run tests'}}
     needs: build
     runs-on: ubuntu-latest
     steps: 
@@ -40,6 +53,7 @@ jobs:
         run: echo testing
 
   scan:
+    if: ${{input.job == 'run All' || input.job == 'run scans'}}
     needs: build
     runs-on: ubuntu-latest
     steps: 
