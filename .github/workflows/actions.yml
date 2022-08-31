@@ -1,11 +1,17 @@
 name: Actions Workflow
 
 on: 
-  [workflow_dispatch, push]
+  [workflow_dispatch]
 
 jobs: 
-  call-workflow-report_SDL:
+  test-EMA:
     uses: InakiOrozcoGarcia/github-actions-test/.github/workflows/Main.yml@master
     with:
       project: 'EMA'
+      SDLe_id: '0'
+
+  test-UNITE:
+    uses: InakiOrozcoGarcia/github-actions-test/.github/workflows/Main.yml@master
+    with:
+      project: 'UNITE'
       SDLe_id: '0'

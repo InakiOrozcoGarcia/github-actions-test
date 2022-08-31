@@ -4,16 +4,23 @@ on:
   workflow_call:
     inputs:
       project:
+        description: 'The project that you want to test & scan'
         required: true
         type: string
       SDLe_id:
+        description: 'The ID of the SDL project'
         required: true
         type: string
-  workflow_dispatch:
-  push:
 
 jobs:
+  print-info:
+    runs-on: ubuntu-latest
 
+    steps:
+      - name: Print the input project and SDLe id to STDOUT
+        run: |
+          echo The project is ${{ inputs.project }}
+          echo The SDLE id is ${{ inputs.SDLe_id }}
 
   build:
     runs-on: ubuntu-latest
