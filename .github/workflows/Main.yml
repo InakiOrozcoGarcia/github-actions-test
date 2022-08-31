@@ -1,19 +1,20 @@
 name: report SDL
 
 on:
-  workflow_call:
+  workflow_dispatch:
     inputs:
       project:
         description: 'The project that you want to test & scan'
         required: true
-        type: choice
-        options:
-        - EMA
-        - UNITE
+        type: string
       SDLe_id:
         description: 'The ID of the SDL project'
         required: true
         type: string
+      print_tags:
+        description: 'True to print to STDOUT'
+        required: true
+        type: boolean
 
 jobs:
   print-info:

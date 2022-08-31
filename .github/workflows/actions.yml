@@ -14,10 +14,6 @@ on:
         description: 'The ID of the SDL project'
         required: true
         type: string
-      print_tags:
-        description: 'True to print to STDOUT'
-        required: true
-        type: boolean
 
 jobs: 
   run-all:
