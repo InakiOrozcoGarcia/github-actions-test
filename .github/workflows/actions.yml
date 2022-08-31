@@ -8,8 +8,8 @@ on:
         required: true
         type: choice
         options:
-        - EMA
-        - UNITE
+        - 'EMA'
+        - 'UNITE'
       SDLe_id:
         description: 'The ID of the SDL project'
         required: true
