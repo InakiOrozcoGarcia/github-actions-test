@@ -1,7 +1,7 @@
 name: report SDL
 
 on:
-  workflow_dispatch:
+  workflow_call:
     inputs:
       project:
         description: 'The project that you want to test & scan'
