@@ -14,6 +14,10 @@ on:
         description: 'The ID of the SDL project'
         required: true
         type: string
+      print_tags:
+        description: 'True to print to STDOUT'
+        required: true
+        type: boolean
 
 jobs: 
   run-all:
@@ -21,14 +25,17 @@ jobs:
     with:
       project: ${{ inputs.project }}
       SDLe_id: ${{ inputs.SDLe_id }}
+      print_tags: ${{ inputs.print_tags }}
+
   run-scans:
     uses: InakiOrozcoGarcia/github-actions-test/.github/workflows/Main.yml@master
     with:
       project: ${{ inputs.project }}
       SDLe_id: ${{ inputs.SDLe_id }}
+      print_tags: ${{ inputs.print_tags }}
   run-tests:
     uses: InakiOrozcoGarcia/github-actions-test/.github/workflows/Main.yml@master
     with:
       project: ${{ inputs.project }}
       SDLe_id: ${{ inputs.SDLe_id }}
-    
+      print_tags: ${{ inputs.print_tags }}
